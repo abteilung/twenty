@@ -7,7 +7,7 @@ services:
         volumes:
             - server-local-data:/app/${STORAGE_LOCAL_PATH:-.local-storage}
         ports:
-            - '3000:3000'
+            - '3333:3000'
         environment:
             PORT: 3000
             PG_DATABASE_URL: postgres://twenty:twenty@${PG_DATABASE_HOST}/default
@@ -36,10 +36,13 @@ services:
         restart: always
 
     db:
+        ports:
+            - '5432:5437'
         image: twentycrm/twenty-postgres:${TAG}
         volumes:
             - db-data:/bitnami/postgresql
         environment:
+            PORT: 5437
             POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD}
         healthcheck:
             test: pg_isready -U twenty -d default
