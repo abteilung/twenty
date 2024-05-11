@@ -26,8 +26,7 @@ services:
             REFRESH_TOKEN_SECRET: ${REFRESH_TOKEN_SECRET}
             FILE_TOKEN_SECRET: ${FILE_TOKEN_SECRET}
         depends_on:
-            db:
-                condition: service_healthy
+            - db
         healthcheck:
             test: curl --fail ${SERVER_URL}/healthz
             interval: 5s
