@@ -37,12 +37,12 @@ services:
 
     db:
         ports:
-            - '5432:5437'
+            - '5437:5432'
         image: twentycrm/twenty-postgres:${TAG}
         volumes:
             - db-data:/bitnami/postgresql
         environment:
-            PORT: 5437
+            PORT: 5432
             POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD}
         healthcheck:
             test: pg_isready -U twenty -d default
