@@ -34,6 +34,8 @@ services:
             timeout: 5s
             retries: 10
         restart: always
+        networks:
+            - twenty-net
 
     db:
         ports:
@@ -50,7 +52,12 @@ services:
             timeout: 5s
             retries: 10
         restart: always
+        networks:
+            - twenty-net
 
 volumes:
     db-data:
     server-local-data:
+
+networks:
+    twenty-net:
