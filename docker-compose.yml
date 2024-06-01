@@ -3,7 +3,6 @@ name: twenty
 
 services:
     server:
-        container_name: twenty-twenty
         image: twentycrm/twenty:${TAG}
         volumes:
             - server-local-data:/app/${STORAGE_LOCAL_PATH:-.local-storage}
@@ -38,7 +37,6 @@ services:
         restart: always
 
     worker:
-        container_name: twenty-worker
         image: twentycrm/twenty:${TAG}
         volumes:
             - worker-local-data:/app/${STORAGE_LOCAL_PATH:-.local-storage}
