@@ -65,7 +65,6 @@ services:
         restart: always
 
     db:
-        container_name: twenty-db
         image: twentycrm/twenty-postgres:${TAG}
         volumes:
             - db-data:/bitnami/postgresql
