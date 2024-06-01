@@ -65,6 +65,7 @@ services:
         restart: always
 
     db:
+        - '5439:5432'
         container_name: twenty-db
         image: twentycrm/twenty-postgres:${TAG}
         volumes:
