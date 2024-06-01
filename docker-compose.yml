@@ -66,11 +66,11 @@ services:
 
     db:
         container_name: twenty-db
-        ports:
-            - '5439:5432'
         image: twentycrm/twenty-postgres:${TAG}
         volumes:
             - db-data:/bitnami/postgresql
+        ports:
+            - '5439:5432'
         environment:
             POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD}
         healthcheck:
